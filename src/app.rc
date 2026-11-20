@@ -1,0 +1,25 @@
+#include <windows.h>
+2 ICON "quiettype.ico"
+1 RT_MANIFEST "app.manifest"
+100 DIALOGEX 0,0,374,312
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "QuietType settings"
+FONT 9,"Segoe UI"
+BEGIN
+ LTEXT "QuietType",110,23,13,155,14
+ LTEXT "Dictation settings",111,22,31,233,29
+ LTEXT "",112,23,63,220,12
+ LTEXT "Keyboard &shortcut",113,23,98,145,14
+ LTEXT "Select the field and press your keys.",120,23,114,164,13
+ CONTROL "",101,"msctls_hotkey32",WS_TABSTOP | WS_BORDER,197,100,153,19
+ LTEXT "&Activation",114,23,140,146,14
+ LTEXT "Choose how recording starts and stops.",121,23,156,170,13
+ CONTROL "&Hold to talk",102,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE | WS_GROUP | WS_TABSTOP,197,141,76,22
+ CONTROL "Press to &toggle",105,"Button",BS_AUTORADIOBUTTON | BS_PUSHLIKE,273,141,77,22
+ LTEXT "&Microphone",115,23,183,145,14,WS_GROUP
+ LTEXT "Audio input for dictation.",122,23,199,165,13
+ COMBOBOX 103,197,186,153,95,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+ CONTROL "Start QuietType &when I sign in",104,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,23,232,280,16
+ PUSHBUTTON "Cancel",IDCANCEL,217,277,56,22
+ DEFPUSHBUTTON "Save changes",IDOK,279,277,71,22
+END

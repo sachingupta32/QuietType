@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.16)
+project(quiettype_worker LANGUAGES C CXX)
+add_subdirectory("${LLAMA_SOURCE}" engine)
+add_executable(polish polish.cpp)
+target_compile_features(polish PRIVATE cxx_std_17)
+target_link_libraries(polish PRIVATE llama)
+target_link_options(polish PRIVATE -municode)
