@@ -78,21 +78,21 @@ LRESULT CALLBACK paint(HWND h,UINT m,WPARAM w,LPARAM l) {
         SetMapMode(dc,MM_ANISOTROPIC);SetWindowExtEx(dc,210,44,nullptr);
         SetViewportExtEx(dc,r.right,r.bottom,nullptr);
         bool hc=visual::highContrast();
-        COLORREF bg=hc?GetSysColor(COLOR_WINDOW):visual::pine;
+        COLORREF bg=hc?GetSysColor(COLOR_WINDOW):visual::ink;
         COLORREF fg=hc?GetSysColor(COLOR_WINDOWTEXT):RGB(251,250,244);
         visual::fill(dc,{0,0,210,44},bg);
         int heights[]={7,15,23,13,7};
         for(int i=0;i<5;i++) {
             int x=17+4*i,top=22-heights[i]/2;
-            visual::fill(dc,{x,top,x+2,top+heights[i]},hc?fg:visual::mint);
+            visual::fill(dc,{x,top,x+2,top+heights[i]},hc?fg:visual::lime);
         }
         HFONT face=CreateFontW(-15,0,0,0,FW_SEMIBOLD,0,0,0,DEFAULT_CHARSET,0,0,CLEARTYPE_QUALITY,0,L"Segoe UI");
         SelectObject(dc,face);SetTextColor(dc,fg);SetBkMode(dc,TRANSPARENT);
         RECT label{47,0,163,44};DrawTextW(dc,status.c_str(),-1,&label,DT_SINGLELINE|DT_VCENTER);
         RECT key{162,9,195,35};
         if(state!=State::Delivering){
-            visual::fill(dc,key,hc?GetSysColor(COLOR_BTNFACE):RGB(49,82,74));
-            SetTextColor(dc,hc?GetSysColor(COLOR_BTNTEXT):visual::mint);
+            visual::fill(dc,key,hc?GetSysColor(COLOR_BTNFACE):RGB(59,54,76));
+            SetTextColor(dc,hc?GetSysColor(COLOR_BTNTEXT):visual::lime);
             DrawTextW(dc,L"Esc",-1,&key,DT_CENTER|DT_VCENTER|DT_SINGLELINE);
         }
         RestoreDC(dc,saved);DeleteObject(face);EndPaint(h,&ps);return 0;

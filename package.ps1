@@ -16,7 +16,7 @@ $components = foreach($line in $components){
 $refs = foreach($line in $components){ "<ComponentRef Id='"+[regex]::Match($line,"Id='([^']+)'").Groups[1].Value+"'/>" }
 @"
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-<Product Id="*" Name="QuietType" Language="1033" Version="1.1.0" Manufacturer="QuietType" UpgradeCode="C2120C1B-F259-4413-8C03-C47A38DD2443">
+<Product Id="*" Name="QuietType" Language="1033" Version="1.3.0" Manufacturer="QuietType" UpgradeCode="C2120C1B-F259-4413-8C03-C47A38DD2443">
 <Package InstallerVersion="500" Compressed="yes" InstallScope="perUser" InstallPrivileges="limited" Platform="x64"/>
 <MajorUpgrade DowngradeErrorMessage="A newer version of QuietType is installed." AllowSameVersionUpgrades="yes"/>
 <MediaTemplate EmbedCab="yes"/>
